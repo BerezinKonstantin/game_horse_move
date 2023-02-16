@@ -3,10 +3,19 @@ import { Cell } from "../models/Cell";
 
 interface CellProps {
   cell: Cell;
+  selected: boolean;
+  click: (cell: Cell) => void;
 }
 
-const CellComponent: FC<CellProps> = ({ cell }) => {
-  return <div className="cell">Cell</div>;
+const CellComponent: FC<CellProps> = ({ cell, selected, click }) => {
+  return (
+    <div
+      onClick={() => click(cell)}
+      className={["cell", selected ? "cell__full" : ""].join(" ")}
+    >
+      {cell.available && <div className="cell__available" />}
+    </div>
+  );
 };
 
 export default CellComponent;
