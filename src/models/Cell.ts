@@ -1,4 +1,5 @@
 import { Board } from "./Board";
+import { Counter } from "./Counter";
 
 export class Cell {
   readonly x: number;
@@ -7,6 +8,7 @@ export class Cell {
   available: boolean;
   board: Board;
   id: number;
+  countNumber: Counter | null;
   constructor(board: Board, x: number, y: number) {
     this.x = x;
     this.y = y;
@@ -14,5 +16,6 @@ export class Cell {
     this.full = false;
     this.available = false;
     this.id = Math.random();
+    this.countNumber = null;
   }
 }
