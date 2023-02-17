@@ -17,17 +17,18 @@ const BoardComponent: FC<BoardProps> = ({ board, counter, setBoard }) => {
     if (!cell.cellnumber && (cell.available || !selectedCell)) {
       setSelectedCell(cell);
       cell.increaseCounter(counter);
-      highlightCells();
     }
   }
 
   useEffect(() => {
     highlightCells();
     updateBoard();
+    console.log("useEffect");
   }, [selectedCell]);
 
   function highlightCells() {
     board.highlightCells(selectedCell);
+    console.log("highlightCells");
   }
 
   function updateBoard() {
