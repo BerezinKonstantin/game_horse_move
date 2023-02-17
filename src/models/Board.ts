@@ -14,15 +14,15 @@ export class Board {
     }
   }
 
-  public highlightCells(selectedCell: Cell | null) {
+  /*public highlightCells(selectedCell: Cell | null) {
     for (let i = 0; i < this.cells.length; i++) {
       const row = this.cells[i];
       for (let j = 0; j < row.length; j++) {
         const target = row[j];
-        target.available = !!selectedCell?.countNumber?.canNext(target);
+        target.available = !!selectedCell?.counter?.canNext(target);
       }
     }
-  }
+  }*/
 
   public getCopyBoard(): Board {
     const newBoard = new Board();

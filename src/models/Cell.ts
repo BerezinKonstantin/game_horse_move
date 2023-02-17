@@ -8,7 +8,8 @@ export class Cell {
   available: boolean;
   board: Board;
   id: number;
-  countNumber: Counter | null;
+  counter: Counter | null;
+  cellnumber: number | null;
   constructor(board: Board, x: number, y: number) {
     this.x = x;
     this.y = y;
@@ -16,6 +17,11 @@ export class Cell {
     this.full = false;
     this.available = false;
     this.id = Math.random();
-    this.countNumber = null;
+    this.counter = null;
+    this.cellnumber = null;
+  }
+
+  public increaseCounter(counter: Counter) {
+    return (this.cellnumber = counter.number++);
   }
 }

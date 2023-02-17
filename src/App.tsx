@@ -3,9 +3,11 @@ import "./App.css";
 import "./components/BoardComponent";
 import BoardComponent from "./components/BoardComponent";
 import { Board } from "./models/Board";
+import { Counter } from "./models/Counter";
 
 const App = () => {
   const [board, setBoard] = useState(new Board());
+  const [counter, setCounter] = useState(new Counter());
   function restart() {
     const newBoard = new Board();
     newBoard.initCells();
@@ -16,7 +18,7 @@ const App = () => {
   }, []);
   return (
     <div className="app">
-      <BoardComponent board={board} setBoard={setBoard} />
+      <BoardComponent board={board} counter={counter} setBoard={setBoard} />
     </div>
   );
 };
