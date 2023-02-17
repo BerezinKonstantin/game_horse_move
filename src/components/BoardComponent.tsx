@@ -14,29 +14,32 @@ const BoardComponent: FC<BoardProps> = ({ board, counter, setBoard }) => {
   const [selectedCell, setSelectedCell] = useState<Cell | null>(null);
 
   function click(cell: Cell) {
-    if (!cell.cellnumber) {
+    if (!cell.cellnumber && (cell.available || !selectedCell)) {
       setSelectedCell(cell);
       cell.increaseCounter(counter);
+      highlightCells();
     }
-
-    //highlightCells();
   }
 
-  /*useEffect(() => {
+  useEffect(() => {
     highlightCells();
-  }, [selectedCell]);*/
-
-  /*function highlightCells() {
-    board.highlightCells(selectedCell);
     updateBoard();
-  }*/
+  }, [selectedCell]);
+
+  function highlightCells() {
+    board.highlightCells(selectedCell);
+  }
 
   function updateBoard() {
     const newBoard = board.getCopyBoard();
     setBoard(newBoard);
   }
+
   return (
     <div>
+      {board.isLose && (
+        <p>У вас не осталось доступных ходов, попробуйте еще раз</p>
+      )}
       <div className="board">
         {board.cells.map((row, index) => (
           <React.Fragment key={index}>

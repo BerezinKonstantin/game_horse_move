@@ -11,10 +11,16 @@ const CellComponent: FC<CellProps> = ({ cell, selected, click }) => {
   return (
     <div
       onClick={() => click(cell)}
-      className={["cell", selected ? "cell__full" : ""].join(" ")}
+      className={[
+        "cell",
+        selected ? "cell__selected" : "",
+        cell.cellnumber ? "cell__full" : "",
+      ].join(" ")}
     >
       {cell.cellnumber}
-      {cell.available && <div className="cell__available" /> && <div>A</div>}
+      {!cell.cellnumber && cell.available && (
+        <div className="cell__available" />
+      )}
     </div>
   );
 };
