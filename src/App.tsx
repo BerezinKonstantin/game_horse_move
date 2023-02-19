@@ -25,35 +25,53 @@ const App = () => {
   }, []);
   return (
     <div className="app">
-      <h1 className="app__title">ИГРА "ХОД КОНЁМ"</h1>
-      <img className="app__logo" src={logo} />
-      <p className="app__text">
-        Ваша цель - заполнить все клетки. Расставляйте цифры по правилам
-        передвижения коня в шахматах.
-      </p>
-      <BoardComponent
-        board={board}
-        counter={counter}
-        setBoard={setBoard}
-        selectedCell={selectedCell}
-        setSelectedCell={setSelectedCell}
-      />
-      {board.isLose && counter.number > 2 && (
+      <header className="header">
+        <h1 className="app__title">ИГРА "ХОД КОНЁМ"</h1>
+        <img className="app__logo" src={logo} />
         <p className="app__text">
+          Ваша цель - заполнить все клетки. Расставляйте цифры по правилам
+          передвижения коня в шахматах.
+        </p>
+      </header>
+      <div className="row_wrapper">
+        <button className="app__button" type="reset" onClick={restart}>
+          Restart
+        </button>
+        <section className="board_section col_wrapper">
+          <BoardComponent
+            board={board}
+            counter={counter}
+            setBoard={setBoard}
+            selectedCell={selectedCell}
+            setSelectedCell={setSelectedCell}
+          />
+        </section>
+        <div className="radio_buttons col_wrapper">
+          <button className="app__button" value={5} name="boardSize">
+            5x5
+          </button>
+          <button className="app__button" value={6} name="boardSize">
+            6x6
+          </button>
+          <button className="app__button" value={7} name="boardSize">
+            7x7
+          </button>
+          <button className="app__button" value={8} name="boardSize">
+            8x8
+          </button>
+          <button className="app__button" value={9} name="boardSize">
+            9x9
+          </button>
+          <button className="app__button" value={10} name="boardSize">
+            10x10
+          </button>
+        </div>
+      </div>
+      {board.isLose && counter.number > 2 && (
+        <p className="app__text_conditions">
           У вас не осталось доступных ходов, попробуйте еще раз
         </p>
       )}
-      <button className="app__button" type="reset" onClick={restart}>
-        Reset
-      </button>
-      <div className="radio_buttons">
-        <button className="app__button" value={5} name="boardSize">
-          5x5
-        </button>
-        <button className="app__button" value={8} name="boardSize">
-          8x8
-        </button>
-      </div>
     </div>
   );
 };
