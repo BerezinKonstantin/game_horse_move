@@ -1,0 +1,119 @@
+$main-font: "Rubik", sans-serif;
+$font-size-s: 18px;
+$font-size-m: 24px;
+$primary-color: #e3f5e9;
+$secondary-color: #63dc90;
+$third-color: #00b945;
+$border-color: #00782d;
+$blackout-percent: 15;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $main-font;
+  color: black;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+.row_wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 auto;
+}
+.col_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.app {
+  @extend .col_wrapper;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+}
+.header {
+  @extend .col_wrapper;
+  width: 100%;
+}
+.app__title {
+  font-size: 42px;
+  font-weight: 700;
+  margin: 42px auto 0;
+}
+.app__text {
+  width: 60%;
+  font-size: $font-size-s;
+  font-weight: 400;
+  margin: 16px auto;
+}
+.app__text_conditions {
+  width: 55%;
+  font-size: $font-size-m;
+  font-weight: 700;
+  margin: 12px auto 0;
+}
+.app__logo {
+  width: 80px;
+  height: 80px;
+  margin: 10px auto 0;
+}
+.app__button {
+  width: 120px;
+  min-height: 48px;
+  font-size: $font-size-m;
+  border: 2px solid $border-color;
+  background-color: $primary-color;
+  border-radius: 20px;
+  margin: 12px 20px;
+  cursor: pointer;
+  user-select: none;
+  &:hover {
+    background-color: darken($primary-color, $blackout-percent);
+  }
+}
+.board {
+  width: calc(64px * 8);
+  height: calc(64px * 8);
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid $border-color;
+  box-sizing: content-box;
+}
+.cell {
+  width: 64px;
+  height: 64px;
+  font-size: $font-size-m;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid $border-color;
+  background-color: $primary-color;
+  cursor: pointer;
+  user-select: none;
+  &:hover {
+    background-color: darken($primary-color, $blackout-percent);
+  }
+}
+.cell__full {
+  background-color: $secondary-color;
+  &:hover {
+    background-color: darken($secondary-color, $blackout-percent);
+  }
+}
+.cell__available {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background-color: $secondary-color;
+}
+.cell__selected {
+  background-color: $third-color;
+  &:hover {
+    background-color: darken($third-color, $blackout-percent);
+  }
+}

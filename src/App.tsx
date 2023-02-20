@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./App.css";
+import "./App.scss";
 import "./components/BoardComponent";
 import BoardComponent from "./components/BoardComponent";
 import { Board } from "./models/Board";
@@ -37,15 +37,13 @@ const App = () => {
         <button className="app__button" type="reset" onClick={restart}>
           Restart
         </button>
-        <section className="board_section col_wrapper">
-          <BoardComponent
-            board={board}
-            counter={counter}
-            setBoard={setBoard}
-            selectedCell={selectedCell}
-            setSelectedCell={setSelectedCell}
-          />
-        </section>
+        <BoardComponent
+          board={board}
+          counter={counter}
+          setBoard={setBoard}
+          selectedCell={selectedCell}
+          setSelectedCell={setSelectedCell}
+        />
         <div className="radio_buttons col_wrapper">
           <button className="app__button" value={5} name="boardSize">
             5x5
