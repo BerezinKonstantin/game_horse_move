@@ -7,6 +7,34 @@ $third-color: #00b945;
 $border-color: #00782d;
 $blackout-percent: 15;
 
+@mixin board-size($num) {
+  width: calc(64px * $num);
+  height: calc(64px * $num);
+}
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid $border-color;
+  box-sizing: content-box;
+  &-size-five {
+    @include board-size(5);
+  }
+  &-size-six {
+    @include board-size(6);
+  }
+  &-size-seven {
+    @include board-size(7);
+  }
+  &-size-eight {
+    @include board-size(8);
+  }
+  &-size-nine {
+    @include board-size(9);
+  }
+  &-size-ten {
+    @include board-size(10);
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -75,14 +103,7 @@ $blackout-percent: 15;
     background-color: darken($primary-color, $blackout-percent);
   }
 }
-.board {
-  width: calc(64px * 8);
-  height: calc(64px * 8);
-  display: flex;
-  flex-wrap: wrap;
-  border: 1px solid $border-color;
-  box-sizing: content-box;
-}
+
 .cell {
   width: 64px;
   height: 64px;

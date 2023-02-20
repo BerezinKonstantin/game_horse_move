@@ -34,13 +34,34 @@ const BoardComponent: FC<BoardProps> = ({
     setBoard(newBoard);
   }
 
+  let boardSize = "board-size-eight";
+  switch (board.boardSize) {
+    case 5:
+      boardSize = "board-size-five";
+      break;
+    case 6:
+      boardSize = "board-size-six";
+      break;
+    case 7:
+      boardSize = "board-size-seven";
+      break;
+    case 8:
+      boardSize = "board-size-eight";
+      break;
+    case 9:
+      boardSize = "board-size-nine";
+      break;
+    case 10:
+      boardSize = "board-size-ten";
+      break;
+  }
   useEffect(() => {
     highlightCells();
     updateBoard();
   }, [selectedCell]);
 
   return (
-    <div className="board">
+    <div className={`board ${boardSize}`}>
       {board.cells.map((row, index) => (
         <React.Fragment key={index}>
           {row.map((cell) => (

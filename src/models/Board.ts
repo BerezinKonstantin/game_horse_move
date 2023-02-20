@@ -2,10 +2,14 @@ import { Cell } from "./Cell";
 
 export class Board {
   cells: Cell[][] = [];
-  boardSize: number = 8;
+  boardSize: number;
   aviableCells: Cell[] = [];
   newAviableCells: Cell[] = [];
   isLose: boolean = false;
+
+  constructor(boardSize: number) {
+    this.boardSize = boardSize;
+  }
 
   public initCells() {
     for (let i = 0; i < this.boardSize; i++) {
@@ -32,7 +36,7 @@ export class Board {
   }
 
   public getCopyBoard(): Board {
-    const newBoard = new Board();
+    const newBoard = new Board(this.boardSize);
     newBoard.cells = this.cells;
     newBoard.aviableCells = this.aviableCells;
     if (newBoard.aviableCells.length === 0) {
