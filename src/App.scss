@@ -7,7 +7,7 @@ $main-font: "Rubik", sans-serif;
 $font-size-s: 18px;
 $font-size-m: 24px;
 $cell-size-xs: 31px;
-$cell-size-s: 40px;
+$cell-size-s: 38px;
 $cell-size-m: 48px;
 $cell-size-l: 64px;
 
@@ -18,11 +18,11 @@ $cell-size-l: 64px;
     width: calc($cell-size-m * $num);
     height: calc($cell-size-m * $num);
   }
-  @media screen and (max-width: 425px) {
+  @media screen and (max-width: 390px) {
     width: calc($cell-size-s * $num);
     height: calc($cell-size-s * $num);
   }
-  @media screen and (max-width: 375px) {
+  @media screen and (max-width: 330px) {
     width: calc($cell-size-xs * $num);
     height: calc($cell-size-xs * $num);
   }
@@ -186,12 +186,12 @@ $cell-size-l: 64px;
     width: $cell-size-m;
     height: $cell-size-m;
   }
-  @media screen and (max-width: 425px) {
+  @media screen and (max-width: 390px) {
     width: $cell-size-s;
     height: $cell-size-s;
     font-size: $font-size-s;
   }
-  @media screen and (max-width: 375px) {
+  @media screen and (max-width: 330px) {
     width: $cell-size-xs;
     height: $cell-size-xs;
     font-size: $font-size-s;
