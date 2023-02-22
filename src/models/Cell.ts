@@ -1,17 +1,14 @@
-import { Board } from "./Board";
 import { Counter } from "./Counter";
 
 export class Cell {
   readonly x: number;
   readonly y: number;
   available: boolean;
-  board: Board;
   id: number;
   cellnumber: number | null;
-  constructor(board: Board, x: number, y: number) {
+  constructor(x: number, y: number) {
     this.x = x;
     this.y = y;
-    this.board = board;
     this.available = false;
     this.id = Math.random();
     this.cellnumber = null;

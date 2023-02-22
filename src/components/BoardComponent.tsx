@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useEffect } from "react";
 import { Board } from "../models/Board";
 import { Cell } from "../models/Cell";
 import { Counter } from "../models/Counter";
@@ -9,7 +9,7 @@ interface BoardProps {
   counter: Counter;
   selectedCell: Cell | null;
   setSelectedCell: (cell: Cell) => void;
-  setBoard: (board: Board) => void; // ??&&&&&&
+  setBoard: (board: Board) => void;
 }
 
 const BoardComponent: FC<BoardProps> = ({

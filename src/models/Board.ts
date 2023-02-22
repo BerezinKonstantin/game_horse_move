@@ -6,6 +6,7 @@ export class Board {
   aviableCells: Cell[] = [];
   newAviableCells: Cell[] = [];
   isLose: boolean = false;
+  isWin: boolean = false;
 
   constructor(boardSize: number) {
     this.boardSize = boardSize;
@@ -15,7 +16,7 @@ export class Board {
     for (let i = 0; i < this.boardSize; i++) {
       const row: Cell[] = [];
       for (let j = 0; j < this.boardSize; j++) {
-        row.push(new Cell(this, j, i));
+        row.push(new Cell(j, i));
       }
       this.cells.push(row);
     }
