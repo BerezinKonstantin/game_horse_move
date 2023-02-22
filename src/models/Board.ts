@@ -4,7 +4,8 @@ export class Board {
   cells: Cell[][] = [];
   boardSize: number;
   aviableCells: Cell[] = [];
-  newAviableCells: Cell[] = [];
+  fullCells: Cell[] = [];
+
   isLose: boolean = false;
   isWin: boolean = false;
 
@@ -24,6 +25,7 @@ export class Board {
 
   public highlightCells(selectedCell: Cell | null) {
     let newAviableCells: Cell[] = [];
+    let fullCells: Cell[] = [];
     for (let i = 0; i < this.cells.length; i++) {
       const row = this.cells[i];
       for (let j = 0; j < row.length; j++) {
@@ -31,16 +33,27 @@ export class Board {
         if ((target.available = !!selectedCell?.canBeNext(target))) {
           newAviableCells.push(target);
         }
+        if (target.cellnumber) {
+          fullCells.push(target);
+        }
       }
     }
-    return (this.aviableCells = newAviableCells);
+    this.aviableCells = newAviableCells;
+    this.fullCells = fullCells;
+    console.log(this.fullCells);
   }
 
   public getCopyBoard(): Board {
     const newBoard = new Board(this.boardSize);
     newBoard.cells = this.cells;
     newBoard.aviableCells = this.aviableCells;
-    if (newBoard.aviableCells.length === 0) {
+    newBoard.fullCells = this.fullCells;
+    if (
+      newBoard.aviableCells.length === 0 &&
+      newBoard.fullCells.length === newBoard.boardSize ** 2
+    ) {
+      newBoard.isWin = true;
+    } else if (newBoard.aviableCells.length === 0) {
       newBoard.isLose = true;
     }
     return newBoard;
