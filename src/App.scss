@@ -7,7 +7,7 @@ $main-font: "Rubik", sans-serif;
 $font-size-s: 18px;
 $font-size-m: 24px;
 $cell-size-xs: 31px;
-$cell-size-s: 39px;
+$cell-size-s: 38px;
 $cell-size-m: 48px;
 $cell-size-l: 64px;
 
@@ -82,7 +82,7 @@ $cell-size-l: 64px;
   font-size: 42px;
   font-weight: 700;
   margin: 42px auto 0;
-  @media screen and (max-width: 390px) {
+  @media screen and (max-width: 425px) {
     font-size: 28px;
     margin: 20px auto 0;
   }
@@ -92,7 +92,7 @@ $cell-size-l: 64px;
   font-size: $font-size-s;
   font-weight: 400;
   margin: 16px auto;
-  @media screen and (max-width: 390px) {
+  @media screen and (max-width: 425px) {
     width: 90%;
     margin: 12px auto 0;
   }
@@ -109,7 +109,7 @@ $cell-size-l: 64px;
   min-height: 100%;
   font-size: $font-size-m;
   font-weight: 700;
-  @media screen and (max-width: 390px) {
+  @media screen and (max-width: 425px) {
     font-size: $font-size-s;
   }
 }
@@ -117,7 +117,7 @@ $cell-size-l: 64px;
   width: 80px;
   height: 80px;
   margin: 10px auto 0;
-  @media screen and (max-width: 390px) {
+  @media screen and (max-width: 425px) {
     width: 40px;
     height: 40px;
   }
