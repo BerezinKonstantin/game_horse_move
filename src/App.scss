@@ -7,22 +7,22 @@ $main-font: "Rubik", sans-serif;
 $font-size-s: 18px;
 $font-size-m: 24px;
 $cell-size-xs: 31px;
-$cell-size-s: 38px;
+$cell-size-s: 39px;
 $cell-size-m: 48px;
 $cell-size-l: 64px;
 
 @mixin board-size($num) {
   width: calc($cell-size-l * $num);
   height: calc($cell-size-l * $num);
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 768px) {
     width: calc($cell-size-m * $num);
     height: calc($cell-size-m * $num);
   }
-  @media screen and (max-width: 390px) {
+  @media screen and (min-width: 390px) and (max-width: 767px) {
     width: calc($cell-size-s * $num);
     height: calc($cell-size-s * $num);
   }
-  @media screen and (max-width: 330px) {
+  @media screen and (min-width: 320px) and (max-width: 389px) {
     width: calc($cell-size-xs * $num);
     height: calc($cell-size-xs * $num);
   }
@@ -82,7 +82,7 @@ $cell-size-l: 64px;
   font-size: 42px;
   font-weight: 700;
   margin: 42px auto 0;
-  @media screen and (max-width: 425px) {
+  @media screen and (max-width: 390px) {
     font-size: 28px;
     margin: 20px auto 0;
   }
@@ -92,7 +92,7 @@ $cell-size-l: 64px;
   font-size: $font-size-s;
   font-weight: 400;
   margin: 16px auto;
-  @media screen and (max-width: 425px) {
+  @media screen and (max-width: 390px) {
     width: 90%;
     margin: 12px auto 0;
   }
@@ -109,7 +109,7 @@ $cell-size-l: 64px;
   min-height: 100%;
   font-size: $font-size-m;
   font-weight: 700;
-  @media screen and (max-width: 425px) {
+  @media screen and (max-width: 390px) {
     font-size: $font-size-s;
   }
 }
@@ -117,7 +117,7 @@ $cell-size-l: 64px;
   width: 80px;
   height: 80px;
   margin: 10px auto 0;
-  @media screen and (max-width: 425px) {
+  @media screen and (max-width: 390px) {
     width: 40px;
     height: 40px;
   }
@@ -182,16 +182,16 @@ $cell-size-l: 64px;
   &:hover {
     background-color: darken($primary-color, $blackout-percent);
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 768px) {
     width: $cell-size-m;
     height: $cell-size-m;
   }
-  @media screen and (max-width: 390px) {
+  @media screen and (min-width: 390px) and (max-width: 767px) {
     width: $cell-size-s;
     height: $cell-size-s;
     font-size: $font-size-s;
   }
-  @media screen and (max-width: 330px) {
+  @media screen and (min-width: 320px) and (max-width: 389px) {
     width: $cell-size-xs;
     height: $cell-size-xs;
     font-size: $font-size-s;
