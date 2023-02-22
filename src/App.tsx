@@ -40,7 +40,7 @@ const App = () => {
           передвижения коня в шахматах.
         </p>
       </header>
-      <div className="row_wrapper">
+      <div className="main_wrapper">
         <button className="app__button" type="reset" onClick={restart}>
           Restart
         </button>
@@ -51,7 +51,7 @@ const App = () => {
           selectedCell={selectedCell}
           setSelectedCell={setSelectedCell}
         />
-        <div className="radio_buttons col_wrapper">
+        <div className="radio_buttons ">
           {boardSizesArr.map((size, i) => (
             <button
               key={i}
@@ -64,14 +64,6 @@ const App = () => {
           ))}
         </div>
       </div>
-      {board.isLose && counter.number > 2 && (
-        <p className="app__text_conditions">
-          У вас не осталось доступных ходов, попробуйте еще раз
-        </p>
-      )}
-      {board.isWin && (
-        <p className="app__text_conditions">Победа! Вы сделали это!</p>
-      )}
     </div>
   );
 };

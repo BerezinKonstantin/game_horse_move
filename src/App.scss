@@ -1,40 +1,28 @@
-$main-font: "Rubik", sans-serif;
-$font-size-s: 18px;
-$font-size-m: 24px;
 $primary-color: #e3f5e9;
 $secondary-color: #63dc90;
 $third-color: #00b945;
 $border-color: #00782d;
 $blackout-percent: 15;
+$main-font: "Rubik", sans-serif;
+$font-size-s: 18px;
+$font-size-m: 24px;
+$cell-size-s: 31px;
+$cell-size-m: 48px;
+$cell-size-l: 64px;
 
 @mixin board-size($num) {
-  width: calc(64px * $num);
-  height: calc(64px * $num);
-}
-.board {
-  display: flex;
-  flex-wrap: wrap;
-  border: 1px solid $border-color;
-  box-sizing: content-box;
-  &-size-five {
-    @include board-size(5);
+  width: calc($cell-size-l * $num);
+  height: calc($cell-size-l * $num);
+  @media screen and (max-width: 768px) {
+    width: calc($cell-size-m * $num);
+    height: calc($cell-size-m * $num);
   }
-  &-size-six {
-    @include board-size(6);
-  }
-  &-size-seven {
-    @include board-size(7);
-  }
-  &-size-eight {
-    @include board-size(8);
-  }
-  &-size-nine {
-    @include board-size(9);
-  }
-  &-size-ten {
-    @include board-size(10);
+  @media screen and (max-width: 425px) {
+    width: calc($cell-size-s * $num);
+    height: calc($cell-size-s * $num);
   }
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -67,27 +55,67 @@ $blackout-percent: 15;
   @extend .col_wrapper;
   width: 100%;
 }
+.main_wrapper {
+  @extend .row_wrapper;
+  @media screen and (max-width: 1023px) {
+    flex-direction: column;
+  }
+}
+.radio_buttons {
+  @extend .col_wrapper;
+  @media screen and (max-width: 1023px) {
+    flex-direction: row;
+    max-width: 70%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  @media screen and (max-width: 425px) {
+    max-width: 90%;
+  }
+}
 .app__title {
   font-size: 42px;
   font-weight: 700;
   margin: 42px auto 0;
+  @media screen and (max-width: 425px) {
+    font-size: 28px;
+    margin: 20px auto 0;
+  }
 }
 .app__text {
   width: 60%;
   font-size: $font-size-s;
   font-weight: 400;
   margin: 16px auto;
+  @media screen and (max-width: 425px) {
+    width: 90%;
+    margin: 12px auto 0;
+  }
 }
 .app__text_conditions {
-  width: 55%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparentize($border-color, 0.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
   font-size: $font-size-m;
   font-weight: 700;
-  margin: 12px auto 0;
+  @media screen and (max-width: 425px) {
+    font-size: $font-size-s;
+  }
 }
 .app__logo {
   width: 80px;
   height: 80px;
   margin: 10px auto 0;
+  @media screen and (max-width: 425px) {
+    width: 40px;
+    height: 40px;
+  }
 }
 .app__button {
   width: 120px;
@@ -102,11 +130,41 @@ $blackout-percent: 15;
   &:hover {
     background-color: darken($primary-color, $blackout-percent);
   }
+  @media screen and (max-width: 425px) {
+    width: 80px;
+    min-height: 32px;
+    font-size: $font-size-s;
+    margin: 8px 12px;
+  }
 }
-
+.board {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid $border-color;
+  box-sizing: content-box;
+  &-size-five {
+    @include board-size(5);
+  }
+  &-size-six {
+    @include board-size(6);
+  }
+  &-size-seven {
+    @include board-size(7);
+  }
+  &-size-eight {
+    @include board-size(8);
+  }
+  &-size-nine {
+    @include board-size(9);
+  }
+  &-size-ten {
+    @include board-size(10);
+  }
+}
 .cell {
-  width: 64px;
-  height: 64px;
+  width: $cell-size-l;
+  height: $cell-size-l;
   font-size: $font-size-m;
   font-weight: 700;
   display: flex;
@@ -118,6 +176,15 @@ $blackout-percent: 15;
   user-select: none;
   &:hover {
     background-color: darken($primary-color, $blackout-percent);
+  }
+  @media screen and (max-width: 768px) {
+    width: $cell-size-m;
+    height: $cell-size-m;
+  }
+  @media screen and (max-width: 425px) {
+    width: $cell-size-s;
+    height: $cell-size-s;
+    font-size: $font-size-s;
   }
 }
 .cell__full {

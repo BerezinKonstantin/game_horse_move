@@ -76,6 +76,14 @@ const BoardComponent: FC<BoardProps> = ({
           ))}
         </React.Fragment>
       ))}
+      {board.isLose && counter.number > 2 && (
+        <p className="app__text_conditions">
+          У вас не осталось доступных ходов, попробуйте еще раз
+        </p>
+      )}
+      {board.isWin && (
+        <p className="app__text_conditions">Победа! Вы сделали это!</p>
+      )}
     </div>
   );
 };

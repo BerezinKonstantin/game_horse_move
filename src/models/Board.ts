@@ -5,10 +5,8 @@ export class Board {
   boardSize: number;
   aviableCells: Cell[] = [];
   fullCells: Cell[] = [];
-
   isLose: boolean = false;
   isWin: boolean = false;
-
   constructor(boardSize: number) {
     this.boardSize = boardSize;
   }
@@ -25,7 +23,7 @@ export class Board {
 
   public highlightCells(selectedCell: Cell | null) {
     let newAviableCells: Cell[] = [];
-    let fullCells: Cell[] = [];
+    let newfullCells: Cell[] = [];
     for (let i = 0; i < this.cells.length; i++) {
       const row = this.cells[i];
       for (let j = 0; j < row.length; j++) {
@@ -34,13 +32,12 @@ export class Board {
           newAviableCells.push(target);
         }
         if (target.cellnumber) {
-          fullCells.push(target);
+          newfullCells.push(target);
         }
       }
     }
     this.aviableCells = newAviableCells;
-    this.fullCells = fullCells;
-    console.log(this.fullCells);
+    this.fullCells = newfullCells;
   }
 
   public getCopyBoard(): Board {
